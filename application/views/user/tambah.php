@@ -10,7 +10,7 @@
 
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-12 col-md-12 mb-4">
+        <div class="col-xl-6 col-md-12 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <form action="<?=base_url()?>user/store" method="POST">
@@ -38,16 +38,6 @@
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>
                     </form>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
                 </div>
             </div>
         </div>
