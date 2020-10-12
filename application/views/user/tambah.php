@@ -32,8 +32,8 @@
                             <select name="level" id="" class="form-control">
                                     <option value="">--Pilih--</option>
                                     <option value="Admin">Admin</option>
-                                    <!-- <option value="Operator">Operator</option> -->
-                                    <option value="Kasir">Kasir</option>
+                                    <option value="Operator">Operator</option>
+                                    
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan</button>

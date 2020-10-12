@@ -34,7 +34,7 @@
                                     <option value="">--Pilih--</option>
                                     <option value="Admin" <?=$row->row()->level=='Admin'?'selected': ''?>>Admin</option>
                                     <option value="Operator" <?=$row->row()->level=='Operator'?'selected': ''?>>Operator</option>
-                                    <option value="Kasir" <?=$row->row()->level=='Kasir'?'selected': ''?>>Kasir</option>
+                                    
                             </select>
                         </div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Update</button>
