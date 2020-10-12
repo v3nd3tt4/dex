@@ -1,2 +1,2 @@
 # dex
-aplikasi mas dexi
+aplikasi dex
