@@ -24,6 +24,26 @@
             <span>Data User</span>
         </a>
     </li>
+	<li class="nav-item <?=$title=='Cur WP' || $title=='Tambah Cur WP' || $title=='Edit Cur WP' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>cur_wp">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data CUR WP</span>
+        </a>
+    </li>
+
+	<li class="nav-item <?=$title=='Dryer' || $title=='Tambah Dryer' || $title=='Edit Dryer' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>dryer">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data Dryer</span>
+        </a>
+	</li>
+	
+	<li class="nav-item <?=$title=='Monitoring' || $title=='Tambah monitoring' || $title=='Edit monitoring' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>monitoring">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data Monitoring</span>
+        </a>
+    </li>
     
     <?php }?>
 
