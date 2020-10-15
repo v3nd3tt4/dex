@@ -13,8 +13,9 @@ class Home extends CI_Controller
 
     public function index()
     {
-       
-
+       	$q = $this->db->query("SELECT * FROM dryer
+		   WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ");
+		$data['row'] = $q;
         $data['title'] = 'Dashboard';
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);

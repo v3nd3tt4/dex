@@ -19,7 +19,7 @@
                         <hr>
                     </div>
                     <div class="row">
-                        
+						<div id="container"></div>
                     </div>
                 </div>
             </div>
@@ -29,3 +29,66 @@
 
 </div>
 <!---Container Fluid-->
+<script>
+	Highcharts.chart('container', {
+  chart: {
+    type: 'spline'
+  },
+  title: {
+    text: 'Monthly Average Temperature'
+  },
+  subtitle: {
+    text: 'Source: WorldClimate.com'
+  },
+  xAxis: {
+    categories: [<?php foreach($row->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+  },
+  yAxis: {
+    title: {
+      text: 'Temperature'
+    },
+    labels: {
+      formatter: function () {
+        return this.value + '°';
+      }
+    }
+  },
+  tooltip: {
+    crosshairs: true,
+    shared: true
+  },
+  plotOptions: {
+    spline: {
+      marker: {
+        radius: 4,
+        lineColor: '#666666',
+        lineWidth: 1
+      }
+    }
+  },
+  series: [{
+    name: 'Humidity',
+    marker: {
+      symbol: 'square'
+    },
+    data: [<?php foreach($row->result() as $r){ echo $r->humidity.', ';}?>{
+      y: 26.5,
+      marker: {
+        symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
+      }
+    }]
+
+  }, {
+    name: 'Temp',
+    marker: {
+      symbol: 'diamond'
+    },
+    data: [{
+      y: 3.9,
+      marker: {
+        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
+      }
+    }, <?php foreach($row->result() as $r){ echo $r->temp.', ';}?>]
+  }]
+});
+</script>
