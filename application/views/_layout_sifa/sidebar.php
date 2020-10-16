@@ -7,7 +7,7 @@
         <div class="sidebar-brand-text mx-3">DEX</div>
     </a>
     <hr class="sidebar-divider my-0">
-    <li class="nav-item">
+    <li class="nav-item <?=$title=='Dashboard' || empty($title)? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
