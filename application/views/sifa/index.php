@@ -56,7 +56,7 @@ Highcharts.chart('container', {
             dataLabels: {
                 enabled: true
             },
-            enableMouseTracking: false
+            enableMouseTracking: true
         }
     },
     series: [{
@@ -67,6 +67,7 @@ Highcharts.chart('container', {
         data: [<?php foreach($row->result() as $r){ echo $r->temp.', ';}?>]
     }]
 });
+
 </script>
 <style>
 	.highcharts-figure, .highcharts-data-table table {
