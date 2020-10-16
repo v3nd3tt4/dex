@@ -19,7 +19,9 @@
                         <hr>
                     </div>
                     <div class="row">
+						<div class="col-md-12">
 						<div id="container"></div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -30,65 +32,73 @@
 </div>
 <!---Container Fluid-->
 <script>
-	Highcharts.chart('container', {
-  chart: {
-    type: 'spline'
-  },
-  title: {
-    text: 'Monthly Average Temperature'
-  },
-  subtitle: {
-    text: 'Source: WorldClimate.com'
-  },
-  xAxis: {
-    categories: [<?php foreach($row->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
-  },
-  yAxis: {
+	
+Highcharts.chart('container', {
+    chart: {
+        type: 'line'
+    },
     title: {
-      text: 'Temperature'
+        text: 'Monthly Average Temperature'
     },
-    labels: {
-      formatter: function () {
-        return this.value + '°';
-      }
-    }
-  },
-  tooltip: {
-    crosshairs: true,
-    shared: true
-  },
-  plotOptions: {
-    spline: {
-      marker: {
-        radius: 4,
-        lineColor: '#666666',
-        lineWidth: 1
-      }
-    }
-  },
-  series: [{
-    name: 'Humidity',
-    marker: {
-      symbol: 'square'
+    subtitle: {
+        text: 'Source: WorldClimate.com'
     },
-    data: [<?php foreach($row->result() as $r){ echo $r->humidity.', ';}?>{
-      y: 26.5,
-      marker: {
-        symbol: 'url(https://www.highcharts.com/samples/graphics/sun.png)'
-      }
+    xAxis: {
+        categories: [<?php foreach($row->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row->result() as $r){ echo $r->temp.', ';}?>]
     }]
-
-  }, {
-    name: 'Temp',
-    marker: {
-      symbol: 'diamond'
-    },
-    data: [{
-      y: 3.9,
-      marker: {
-        symbol: 'url(https://www.highcharts.com/samples/graphics/snow.png)'
-      }
-    }, <?php foreach($row->result() as $r){ echo $r->temp.', ';}?>]
-  }]
 });
 </script>
+<style>
+	.highcharts-figure, .highcharts-data-table table {
+  width: 100%;
+  margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+</style>
