@@ -37,6 +37,20 @@
             <span>Data Dryer</span>
         </a>
 	</li>
+
+    <li class="nav-item <?=$title=='Dryer2' || $title=='Tambah Dryer2' || $title=='Edit Dryer2' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>dryer2">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data Dryer 2</span>
+        </a>
+	</li>
+
+    <li class="nav-item <?=$title=='Dryer3' || $title=='Tambah Dryer3' || $title=='Edit Dryer3' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>dryer3">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data Dryer 3</span>
+        </a>
+	</li>
 	
 	<li class="nav-item <?=$title=='Monitoring' || $title=='Tambah monitoring' || $title=='Edit monitoring' ? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>monitoring">
