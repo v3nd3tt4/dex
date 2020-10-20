@@ -51,6 +51,13 @@
             <span>Data Dryer 3</span>
         </a>
 	</li>
+
+    <li class="nav-item <?=$title=='Dryer4' || $title=='Tambah Dryer4' || $title=='Edit Dryer4' ? 'active' :'' ?>">
+        <a class="nav-link" href="<?= base_url(); ?>dryer4">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Data Dryer 4</span>
+        </a>
+	</li>
 	
 	<li class="nav-item <?=$title=='Monitoring' || $title=='Tambah monitoring' || $title=='Edit monitoring' ? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>monitoring">
