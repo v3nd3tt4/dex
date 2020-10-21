@@ -23,6 +23,31 @@
 						<div id="container"></div>
 						</div>
                     </div>
+					<div class="row">
+						<div class="col-md-12">
+						<div id="container2"></div>
+						</div>
+                    </div>
+					<div class="row">
+						<div class="col-md-12">
+						<div id="container3"></div>
+						</div>
+                    </div>
+					<div class="row">
+						<div class="col-md-12">
+						<div id="container4"></div>
+						</div>
+                    </div>
+					<div class="row">
+						<div class="col-md-12">
+						<div id="container5"></div>
+						</div>
+                    </div>
+					<div class="row">
+						<div class="col-md-12">
+						<div id="container6"></div>
+						</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,6 +90,181 @@ Highcharts.chart('container', {
     }, {
         name: 'Temp',
         data: [<?php foreach($row->result() as $r){ echo $r->temp.', ';}?>]
+    }]
+});
+
+Highcharts.chart('container2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [<?php foreach($row2->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: true
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row2->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row2->result() as $r){ echo $r->temp.', ';}?>]
+    }]
+});
+
+Highcharts.chart('container3', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [<?php foreach($row3->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: true
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row3->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row3->result() as $r){ echo $r->temp.', ';}?>]
+    }]
+});
+
+Highcharts.chart('container4', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [<?php foreach($row4->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: true
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row4->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row4->result() as $r){ echo $r->temp.', ';}?>]
+    }]
+});
+
+Highcharts.chart('container5', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [<?php foreach($row5->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: true
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row5->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row5->result() as $r){ echo $r->temp.', ';}?>]
+    }]
+});
+
+Highcharts.chart('container6', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [<?php foreach($row6->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
+    },
+    yAxis: {
+        title: {
+            text: 'Temperature (°C)'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: true
+        }
+    },
+    series: [{
+        name: 'Humidity',
+        data: [<?php foreach($row6->result() as $r){ echo $r->humidity.', ';}?>]
+    }, {
+        name: 'Temp',
+        data: [<?php foreach($row6->result() as $r){ echo $r->temp.', ';}?>]
     }]
 });
 
