@@ -18,29 +18,29 @@
     </div>
     <?php if($this->session->userdata('level') == 'Admin'){?>
 
-    <li class="nav-item <?=$title=='sensor_anemo' ? 'active' :''?>">
+    <li class="nav-item <?=$title=='sensor_anemo' || $title == 'arus' || $title == 'angin' || $title == 'daya' ? 'active' :''?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
             aria-controls="collapseForm">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>PLTB</span>
         </a>
-        <div id="collapseForm" class="collapse <?=$title=='sensor_anemo' ? 'show' :''?>" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+        <div id="collapseForm" class="collapse <?=$title=='sensor_anemo' || $title == 'arus' || $title == 'angin' || $title == 'daya' ? 'show' :''?>" aria-labelledby="headingForm" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">PLTB</h6>
             <a class="collapse-item" href="<?=base_url()?>pltb/sensor_anemo">Sensor Anemo</a>
-            <a class="collapse-item" href="form_advanceds.html">Arus</a>
-            <a class="collapse-item" href="form_advanceds.html">Angin</a>
-            <a class="collapse-item" href="form_advanceds.html">Daya</a>
+            <a class="collapse-item" href="<?=base_url()?>pltb/arus">Arus</a>
+            <a class="collapse-item" href="<?=base_url()?>pltb/angin">Angin</a>
+            <a class="collapse-item" href="<?=base_url()?>pltb/daya">Daya</a>
             </div>
         </div>
     </li>
     
-    <li class="nav-item <?=$title=='User' || $title=='Tambah User' || $title=='Edit User' ? 'active' :'' ?>">
+    <!-- <li class="nav-item <?=$title=='User' || $title=='Tambah User' || $title=='Edit User' ? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>user">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>Data User</span>
         </a>
-    </li>
+    </li> -->
 	<!-- <li class="nav-item <?=$title=='Cur WP' || $title=='Tambah Cur WP' || $title=='Edit Cur WP' ? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>cur_wp">
             <i class="fab fa-fw fa-wpforms"></i>
