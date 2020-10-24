@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Sensor_anemo extends CI_Controller
+class Pv2_tegangan extends CI_Controller
 {
     public function __construct()
     {
@@ -13,9 +13,9 @@ class Sensor_anemo extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'sensor_anemo';
-        $data['script'] = 'pltb/sensor_anemo/script';
-        $this->db->from('sensor_anemo');
+        $data['title'] = 'pv2_tegangan';
+        $data['script'] = 'pv2/pv2_tegangan/script';
+        $this->db->from('pv2_tegangan');
         // $this->db->join('tb_unit', 'tb_unit.id_unit=tb_user.unit');
         
         
@@ -25,24 +25,24 @@ class Sensor_anemo extends CI_Controller
 
             if(strtotime($tgl_akhir) < strtotime($tgl_awal)){
                 echo '<script>alert("Tanggal Akhir tidak boleh lebih kecil dari tanggal awal");</script>';
-                echo '<script>window.location.href = "'.base_url().'pltb/sensor_anemo";</script>';
+                echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';
                 exit();
             }
 
             if(strtotime($tgl_awal) == strtotime($tgl_akhir)){
                 $this->db->where(array('DATE(tanggal)' => $tgl_awal));
-                $que = "SELECT * FROM sensor_anemo WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pv2_tegangan WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
             }
 
             if(strtotime($tgl_akhir) > strtotime($tgl_awal)){
                 $this->db->where(array('DATE(tanggal) >=' => $tgl_awal));
                 $this->db->where(array('DATE(tanggal) <=' => $tgl_awal));
 
-                $que = "SELECT * FROM sensor_anemo WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pv2_tegangan WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
             }
 
         }else{
-            $que = "SELECT * FROM sensor_anemo
+            $que = "SELECT * FROM pv2_tegangan
             WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
         }
 
@@ -56,21 +56,21 @@ class Sensor_anemo extends CI_Controller
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);
         $this->load->view('_layout_sifa/topbar', $data);
-        $this->load->view('pltb/sensor_anemo/index', $data);
+        $this->load->view('pv2/pv2_tegangan/index', $data);
         $this->load->view('_layout_sifa/footer', $data);
     }
 
     public function tambah()
     {
-        $data['title'] = 'sensor_anemo';
-        $data['script'] = 'pltb/sensor_anemo/script';
+        $data['title'] = 'pv2_tegangan';
+        $data['script'] = 'pv2/pv2_tegangan/script';
         
         
         
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);
         $this->load->view('_layout_sifa/topbar', $data);
-        $this->load->view('pltb/sensor_anemo/tambah', $data);
+        $this->load->view('pv2/pv2_tegangan/tambah', $data);
         $this->load->view('_layout_sifa/footer', $data);
     }
 
@@ -83,10 +83,10 @@ class Sensor_anemo extends CI_Controller
 			'temp'=> $temp,
 			'tanggal'=> $tanggal,
         );
-        $simpan = $this->db->insert('sensor_anemo', $data_to_save);
+        $simpan = $this->db->insert('pv2_tegangan', $data_to_save);
         if($simpan){
             echo '<script>alert("Berhasil disimpan");</script>';
-            echo '<script>window.location.href = "'.base_url().'pltb/sensor_anemo";</script>';
+            echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';
         }else{
             echo '<script>alert("Gagal disimpan");</script>';
             echo '<script>window.history.back();</script>';
@@ -94,10 +94,10 @@ class Sensor_anemo extends CI_Controller
     }
 
     public function remove($id){
-        $hapus = $this->db->delete('sensor_anemo', array('id' => $id));
+        $hapus = $this->db->delete('pv2_tegangan', array('id' => $id));
         if($hapus){
             echo '<script>alert("Berhasil dihapus");</script>';
-            echo '<script>window.location.href = "'.base_url().'pltb/sensor_anemo";</script>';
+            echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';
         }else{
             echo '<script>alert("Gagal dihapus");</script>';
             echo '<script>window.history.back();</script>';
@@ -106,14 +106,14 @@ class Sensor_anemo extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->db->get_where('sensor_anemo', array('id' => $id));
-        $data['title'] = 'sensor_anemo';
-        $data['script'] = 'pltb/sensor_anemo/script';
+        $query = $this->db->get_where('pv2_tegangan', array('id' => $id));
+        $data['title'] = 'pv2_tegangan';
+        $data['script'] = 'pv2/pv2_tegangan/script';
         $data['row'] = $query;
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);
         $this->load->view('_layout_sifa/topbar', $data);
-        $this->load->view('pltb/sensor_anemo/edit', $data);
+        $this->load->view('pv2/pv2_tegangan/edit', $data);
         $this->load->view('_layout_sifa/footer', $data);
     }
 
@@ -129,10 +129,10 @@ class Sensor_anemo extends CI_Controller
 			'tanggal'=> $tanggal,
         );
 
-        $simpan = $this->db->update('sensor_anemo', $data_to_save, array('id' => $id));
+        $simpan = $this->db->update('pv2_tegangan', $data_to_save, array('id' => $id));
         if($simpan){
             echo '<script>alert("Berhasil diupdate");</script>';
-            echo '<script>window.location.href = "'.base_url().'pltb/sensor_anemo";</script>';
+            echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';
         }else{
             echo '<script>alert("Gagal diupdate");</script>';
             echo '<script>window.history.back();</script>';

@@ -34,6 +34,40 @@
             </div>
         </div>
     </li>
+
+    <li class="nav-item <?=$title=='pv1_lux_meter' || $title == 'pv1_arus' || $title == 'pv1_daya' ? 'active' :''?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm2" aria-expanded="true"
+            aria-controls="collapseForm">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>PLTS PV1</span>
+        </a>
+        <div id="collapseForm1" class="collapse <?=$title=='pv1_lux_meter' || $title == 'pv1_arus' || $title == 'pv1_daya' ? 'show' :''?>" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">PLTB</h6>
+            <a class="collapse-item" href="<?=base_url()?>pv1/pv1_lux_meter">Lux Meter</a>
+            <a class="collapse-item" href="<?=base_url()?>pv1/pv1_arus">Arus</a>
+            <a class="collapse-item" href="<?=base_url()?>pv1/pv1_arus">Daya</a>
+            </div>
+        </div>
+    </li>
+
+    
+
+    <li class="nav-item <?=$title=='pv2_tegangan' || $title == 'pv2_arus' || $title == 'pv2_daya' ? 'active' :''?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm2" aria-expanded="true"
+            aria-controls="collapseForm">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>PLTS PV1</span>
+        </a>
+        <div id="collapseForm2" class="collapse <?=$title=='pv2_tegangan' || $title == 'pv2_arus' || $title == 'pv2_daya' ? 'show' :''?>" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">PLTS PV1</h6>
+            <a class="collapse-item" href="<?=base_url()?>pv2/pv2_arus">Arus</a>
+            <a class="collapse-item" href="<?=base_url()?>pv2/pv2_tegangan">Tegangan</a>
+            <a class="collapse-item" href="<?=base_url()?>pv2/pv2_daya">Daya</a>
+            </div>
+        </div>
+    </li>
     
     <!-- <li class="nav-item <?=$title=='User' || $title=='Tambah User' || $title=='Edit User' ? 'active' :'' ?>">
         <a class="nav-link" href="<?= base_url(); ?>user">

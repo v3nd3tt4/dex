@@ -31,18 +31,18 @@ class Arus extends CI_Controller
 
             if(strtotime($tgl_awal) == strtotime($tgl_akhir)){
                 $this->db->where(array('DATE(tanggal)' => $tgl_awal));
-                $que = "SELECT * FROM dryer WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM arus WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
             }
 
             if(strtotime($tgl_akhir) > strtotime($tgl_awal)){
                 $this->db->where(array('DATE(tanggal) >=' => $tgl_awal));
                 $this->db->where(array('DATE(tanggal) <=' => $tgl_awal));
 
-                $que = "SELECT * FROM dryer WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM arus WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
             }
 
         }else{
-            $que = "SELECT * FROM dryer
+            $que = "SELECT * FROM arus
             WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
         }
 
@@ -86,7 +86,7 @@ class Arus extends CI_Controller
         $simpan = $this->db->insert('arus', $data_to_save);
         if($simpan){
             echo '<script>alert("Berhasil disimpan");</script>';
-            echo '<script>window.location.href = "'.base_url().'arus";</script>';
+            echo '<script>window.location.href = "'.base_url().'pltb/arus";</script>';
         }else{
             echo '<script>alert("Gagal disimpan");</script>';
             echo '<script>window.history.back();</script>';
@@ -97,7 +97,7 @@ class Arus extends CI_Controller
         $hapus = $this->db->delete('arus', array('id' => $id));
         if($hapus){
             echo '<script>alert("Berhasil dihapus");</script>';
-            echo '<script>window.location.href = "'.base_url().'arus";</script>';
+            echo '<script>window.location.href = "'.base_url().'pltb/arus";</script>';
         }else{
             echo '<script>alert("Gagal dihapus");</script>';
             echo '<script>window.history.back();</script>';
@@ -132,7 +132,7 @@ class Arus extends CI_Controller
         $simpan = $this->db->update('arus', $data_to_save, array('id' => $id));
         if($simpan){
             echo '<script>alert("Berhasil diupdate");</script>';
-            echo '<script>window.location.href = "'.base_url().'arus";</script>';
+            echo '<script>window.location.href = "'.base_url().'pltb/arus";</script>';
         }else{
             echo '<script>alert("Gagal diupdate");</script>';
             echo '<script>window.history.back();</script>';
