@@ -15,7 +15,7 @@ class Pv2_tegangan extends CI_Controller
     {
         $data['title'] = 'pv2_tegangan';
         $data['script'] = 'pv2/pv2_tegangan/script';
-        $this->db->from('pv2_tegangan');
+        $this->db->from('pv2_volt');
         // $this->db->join('tb_unit', 'tb_unit.id_unit=tb_user.unit');
         
         
@@ -31,19 +31,22 @@ class Pv2_tegangan extends CI_Controller
 
             if(strtotime($tgl_awal) == strtotime($tgl_akhir)){
                 $this->db->where(array('DATE(tanggal)' => $tgl_awal));
-                $que = "SELECT * FROM pv2_tegangan WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                // $que = "SELECT * FROM pv2_volt WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pv2_volt WHERE DATE(tanggal) = '$tgl_awal'";
             }
 
             if(strtotime($tgl_akhir) > strtotime($tgl_awal)){
                 $this->db->where(array('DATE(tanggal) >=' => $tgl_awal));
-                $this->db->where(array('DATE(tanggal) <=' => $tgl_awal));
+                $this->db->where(array('DATE(tanggal) <=' => $tgl_akhir));
 
-                $que = "SELECT * FROM pv2_tegangan WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                // $que = "SELECT * FROM pv2_volt WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pv2_volt WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir')";
             }
 
         }else{
-            $que = "SELECT * FROM pv2_tegangan
-            WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+            // $que = "SELECT * FROM pv2_volt
+            // WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+            $que = "SELECT * FROM pv2_volt";
         }
 
 
@@ -75,15 +78,13 @@ class Pv2_tegangan extends CI_Controller
     }
 
     public function store(){
-        $humidity = $this->input->post('humidity', true);
-		$temp = $this->input->post('temp', true);
+        $data = $this->input->post('data', true);
 		$tanggal = $this->input->post('tanggal', true);
         $data_to_save = array(
-            'humidity' => $humidity,
-			'temp'=> $temp,
+            'data' => $data,
 			'tanggal'=> $tanggal,
         );
-        $simpan = $this->db->insert('pv2_tegangan', $data_to_save);
+        $simpan = $this->db->insert('pv2_volt', $data_to_save);
         if($simpan){
             echo '<script>alert("Berhasil disimpan");</script>';
             echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';
@@ -106,7 +107,7 @@ class Pv2_tegangan extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->db->get_where('pv2_tegangan', array('id' => $id));
+        $query = $this->db->get_where('pv2_volt', array('id' => $id));
         $data['title'] = 'pv2_tegangan';
         $data['script'] = 'pv2/pv2_tegangan/script';
         $data['row'] = $query;
@@ -120,16 +121,14 @@ class Pv2_tegangan extends CI_Controller
     public function update(){
 		$id = $this->input->post('id', true);
 		
-        $humidity = $this->input->post('humidity', true);
-		$temp = $this->input->post('temp', true);
+        $data = $this->input->post('data', true);
 		$tanggal = $this->input->post('tanggal', true);
         $data_to_save = array(
-            'humidity' => $humidity,
-			'temp'=> $temp,
+            'data' => $data,
 			'tanggal'=> $tanggal,
         );
 
-        $simpan = $this->db->update('pv2_tegangan', $data_to_save, array('id' => $id));
+        $simpan = $this->db->update('pv2_volt', $data_to_save, array('id' => $id));
         if($simpan){
             echo '<script>alert("Berhasil diupdate");</script>';
             echo '<script>window.location.href = "'.base_url().'pv2/pv2_tegangan";</script>';

@@ -13,9 +13,9 @@ class Daya extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'daya';
+        $data['title'] = 'Volt';
         $data['script'] = 'pltb/daya/script';
-        $this->db->from('daya');
+        $this->db->from('pltb_volt');
         // $this->db->join('tb_unit', 'tb_unit.id_unit=tb_user.unit');
         
         
@@ -31,19 +31,23 @@ class Daya extends CI_Controller
 
             if(strtotime($tgl_awal) == strtotime($tgl_akhir)){
                 $this->db->where(array('DATE(tanggal)' => $tgl_awal));
-                $que = "SELECT * FROM daya WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                // $que = "SELECT * FROM pltb_volt WHERE DATE(tanggal) = '$tgl_awal'  and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pltb_volt WHERE DATE(tanggal) = '$tgl_awal'";
             }
 
             if(strtotime($tgl_akhir) > strtotime($tgl_awal)){
                 $this->db->where(array('DATE(tanggal) >=' => $tgl_awal));
-                $this->db->where(array('DATE(tanggal) <=' => $tgl_awal));
+                $this->db->where(array('DATE(tanggal) <=' => $tgl_akhir));
 
-                $que = "SELECT * FROM daya WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                // $que = "SELECT * FROM pltb_volt WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir') and humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+                $que = "SELECT * FROM pltb_volt WHERE (DATE(tanggal) between '$tgl_awal' and '$tgl_akhir')";
             }
 
         }else{
-            $que = "SELECT * FROM daya
-            WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+            // $que = "SELECT * FROM pltb_volt
+            // WHERE humidity NOT LIKE '%t%' AND humidity NOT LIKE '%n%' AND humidity != '' AND temp NOT LIKE '%t%' AND temp NOT LIKE '%n%' AND temp != '' ";
+            $que = "SELECT * FROM pltb_volt";
+
         }
 
 
@@ -62,7 +66,7 @@ class Daya extends CI_Controller
 
     public function tambah()
     {
-        $data['title'] = 'daya';
+        $data['title'] = 'Volt';
         $data['script'] = 'pltb/daya/script';
         
         
@@ -75,15 +79,13 @@ class Daya extends CI_Controller
     }
 
     public function store(){
-        $humidity = $this->input->post('humidity', true);
-		$temp = $this->input->post('temp', true);
+        $data = $this->input->post('data', true);
 		$tanggal = $this->input->post('tanggal', true);
         $data_to_save = array(
-            'humidity' => $humidity,
-			'temp'=> $temp,
+            'data' => $data,
 			'tanggal'=> $tanggal,
         );
-        $simpan = $this->db->insert('daya', $data_to_save);
+        $simpan = $this->db->insert('pltb_volt', $data_to_save);
         if($simpan){
             echo '<script>alert("Berhasil disimpan");</script>';
             echo '<script>window.location.href = "'.base_url().'pltb/daya";</script>';
@@ -94,7 +96,7 @@ class Daya extends CI_Controller
     }
 
     public function remove($id){
-        $hapus = $this->db->delete('daya', array('id' => $id));
+        $hapus = $this->db->delete('pltb_volt', array('id' => $id));
         if($hapus){
             echo '<script>alert("Berhasil dihapus");</script>';
             echo '<script>window.location.href = "'.base_url().'pltb/daya";</script>';
@@ -106,7 +108,7 @@ class Daya extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->db->get_where('daya', array('id' => $id));
+        $query = $this->db->get_where('pltb_volt', array('id' => $id));
         $data['title'] = 'daya';
         $data['script'] = 'pltb/daya/script';
         $data['row'] = $query;
@@ -120,16 +122,14 @@ class Daya extends CI_Controller
     public function update(){
 		$id = $this->input->post('id', true);
 		
-        $humidity = $this->input->post('humidity', true);
-		$temp = $this->input->post('temp', true);
+        $data = $this->input->post('data', true);
 		$tanggal = $this->input->post('tanggal', true);
         $data_to_save = array(
-            'humidity' => $humidity,
-			'temp'=> $temp,
+            'data' => $data,
 			'tanggal'=> $tanggal,
         );
 
-        $simpan = $this->db->update('daya', $data_to_save, array('id' => $id));
+        $simpan = $this->db->update('pltb_volt', $data_to_save, array('id' => $id));
         if($simpan){
             echo '<script>alert("Berhasil diupdate");</script>';
             echo '<script>window.location.href = "'.base_url().'pltb/daya";</script>';

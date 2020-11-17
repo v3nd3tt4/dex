@@ -15,14 +15,11 @@
                 <div class="card-body">
                     <form action="<?=base_url()?>pltb/arus/update" method="POST">
                     <div class="form-group">
-                            <label for="">Humidity:</label>
+                            <label for="">Data:</label>
                             <input type="hidden" name="id" value="<?=$row->row()->id?>">
-                            <input type="text" class="form-control" name="humidity" value="<?=$row->row()->humidity?>">
+                            <input type="text" class="form-control" name="data" value="<?=$row->row()->data?>">
                         </div>
-                        <div class="form-group">
-                            <label for="">Temp:</label>
-                            <input type="text" class="form-control" name="temp" value="<?=$row->row()->temp?>">
-                        </div>
+                        
 						<div class="form-group">
                             <label for="">Tanggal:</label>
                             <input type="text" class="form-control" name="tanggal" value="<?=$row->row()->tanggal?>">

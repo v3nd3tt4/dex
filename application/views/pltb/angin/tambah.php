@@ -15,12 +15,8 @@
                 <div class="card-body">
                     <form action="<?=base_url()?>pltb/angin/store" method="POST">
                         <div class="form-group">
-                            <label for="">Humidity:</label>
-                            <input type="text" class="form-control" name="humidity">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Temp:</label>
-                            <input type="text" class="form-control" name="temp">
+                            <label for="">Data:</label>
+                            <input type="text" class="form-control" name="data">
                         </div>
 						<div class="form-group">
                             <label for="">Tanggal:</label>

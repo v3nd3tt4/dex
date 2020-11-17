@@ -62,8 +62,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>Humidity</td>
-                                <td>Temp</td>
+                                <td>Data</td>
                                 <td>Tanggal</td>
                                 <td>Aksi</td>
                             </tr>
@@ -72,8 +71,7 @@
                             <?php $no=1;foreach($row->result() as $row_data){?>
                             <tr>
                                 <td><?=$no++?>.</td>
-                                <td><?=$row_data->humidity?></td>
-                                <td><?=$row_data->temp?></td>
+                                <td><?=$row_data->data?></td>
 								<td><?=$row_data->tanggal?></td>
                                 <td>
                                 <a href="<?=base_url()?>pv2/pv2_tegangan/remove/<?=$row_data->id?>" class="btn btn-outline-danger btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="fas fa-trash-alt"></i> Hapus</a>
@@ -120,11 +118,8 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Humidity',
-        data: [<?php foreach($row_chart->result() as $r){ echo $r->humidity.', ';}?>]
-    }, {
-        name: 'Temp',
-        data: [<?php foreach($row_chart->result() as $r){ echo $r->temp.', ';}?>]
+        name: 'Data',
+        data: [<?php foreach($row_chart->result() as $r){ echo $r->data.', ';}?>]
     }]
 });
 </script>
