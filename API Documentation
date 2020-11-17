@@ -1,0 +1,58 @@
+API Documentation
+====================
+
+1. simpan pltb angin
+    url: http://www.research-dean.xyz/api/pltb_angin/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+2. simpan pltb arus
+    url: http://www.research-dean.xyz/api/pltb_arus/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+3. simpan pltb volt
+    url: http://www.research-dean.xyz/api/pltb_volt/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+4. simpan pv1 arus
+    url: http://www.research-dean.xyz/api/pv1_arus/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+5. simpan pv1 daya
+    url: http://www.research-dean.xyz/api/pv1_daya/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+6. simpan pv1 lux meter
+    url: http://www.research-dean.xyz/api/pv1_lux_meter/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+7. simpan pv2 arus
+    url: http://www.research-dean.xyz/api/pv2_arus/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
+
+8. simpan pv2 volt
+    url: http://www.research-dean.xyz/api/pv2_volt/store
+    data get: {
+        code: 'dex', //untuk pengaman url
+        data: '90' //angka untuk ke field data
+    }
