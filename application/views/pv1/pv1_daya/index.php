@@ -99,7 +99,7 @@ Highcharts.chart('container', {
         text: 'Daya'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row_chart->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]

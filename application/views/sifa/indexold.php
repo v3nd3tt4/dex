@@ -66,7 +66,7 @@ Highcharts.chart('container', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
@@ -101,7 +101,7 @@ Highcharts.chart('container2', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row2->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
@@ -136,7 +136,7 @@ Highcharts.chart('container3', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row3->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
@@ -171,7 +171,7 @@ Highcharts.chart('container4', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row4->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
@@ -206,7 +206,7 @@ Highcharts.chart('container5', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row5->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
@@ -241,7 +241,7 @@ Highcharts.chart('container6', {
         text: 'Monthly Average Temperature'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: '-'
     },
     xAxis: {
         categories: [<?php foreach($row6->result() as $r){ echo '"'.$r->tanggal.'", ';}?>]
